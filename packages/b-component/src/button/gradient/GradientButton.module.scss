@@ -1,0 +1,29 @@
+.gradient-button {
+  >span {
+    position: relative;
+  }
+
+  &::before {
+    content: '';
+    background: linear-gradient(135deg, #6253e1, #04befe);
+    position: absolute;
+    inset: -1px;
+    opacity: 1;
+    transition: all 0.3s;
+    border-radius: inherit;
+  }
+
+  &:hover::before {
+    opacity: 0;
+  }
+}
+
+.gradient-button-infer {
+  &::before {
+    background-image: linear-gradient(-64deg, #916BFD 0%, #2A69FF 90%);
+  }
+
+  &:hover::before {
+    opacity: 1;
+  }
+}

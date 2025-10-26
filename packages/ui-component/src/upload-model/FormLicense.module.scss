@@ -1,0 +1,32 @@
+.form-license {
+    .header {
+        font-weight: 400;
+        font-size: 16px;
+    }
+
+    .title {
+        font-weight: 400;
+        font-size: 14px;
+        margin: 20px 0 0 0;
+    }
+
+    .form-item {
+        margin-bottom: 0;
+    }
+
+    :global {
+        .ant-form-item {
+            margin-bottom: 0;
+
+            .ant-checkbox-wrapper {
+                color: #737D84;
+                font-size: 13px;
+            }
+        }
+    }
+    .checkbox {
+        display: block;
+        height: 32px;
+        line-height: 32px;
+    }
+}

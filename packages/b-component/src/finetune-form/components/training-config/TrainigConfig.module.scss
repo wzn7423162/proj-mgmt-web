@@ -1,0 +1,35 @@
+.training-config {
+  padding: 0 20px 20px 20px;
+}
+
+.bottom-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .expand-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #2a69ff;
+    cursor: pointer;
+
+    &-text {
+      margin-right: 8px;
+    }
+
+    :global {
+      .anticon {
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+.professional-form {
+  .group {
+    &:not(:first-of-type) {
+      margin-top: 24px;
+    }
+  }
+}

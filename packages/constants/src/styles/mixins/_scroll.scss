@@ -1,0 +1,45 @@
+@mixin scroll-bar {
+  // 基本滚动条样式
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  // 滚动条轨道
+  ::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-button {
+    display: none;
+  }
+
+  // 滚动条滑块 - 默认透明（不可见）
+  ::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0);
+    border-radius: 10px;
+    transition: background 0.3s;
+  }
+
+  // 鼠标悬停时显示滚动条
+  &:hover {
+    ::-webkit-scrollbar-thumb {
+      background: rgba(0, 0, 0, 0.2);
+      opacity: 1;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(0, 0, 0, 0.4);
+    }
+  }
+
+  // 隐藏上下箭头
+  ::-webkit-scrollbar-button {
+    display: none;
+  }
+
+  // Firefox兼容
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+}

@@ -1,0 +1,43 @@
+{
+  "exclude": [
+    "build",
+    "tests"
+  ],
+  "extends": "@llama-fa/compile/config/tsconfig.options.json",
+  "include": [
+    "src/**/*",
+    "types/**/*",
+    "../../types/**/*"
+  ],
+  "compilerOptions": {
+    "outDir": "./build",
+    "paths": {
+      "@/api/*": [
+        "./src/api/*"
+      ],
+      "@/assets/*": [
+        "./src/assets/*"
+      ],
+      "@/context/*": [
+        "./src/context/*"
+      ],
+      "@/hooks/*": [
+        "./src/hooks/*"
+      ],
+      "@/utils/*": [
+        "./src/utils/*"
+      ]
+    }
+  },
+  "references": [
+    {
+      "path": "../utils"
+    },
+    {
+      "path": "../types"
+    },
+    {
+      "path": "../constants/"
+    }
+  ]
+}

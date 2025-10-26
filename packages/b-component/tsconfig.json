@@ -1,0 +1,166 @@
+{
+  "exclude": [
+    "build",
+    "tests"
+  ],
+  "extends": "@llama-fa/compile/config/tsconfig.options.json",
+  "include": [
+    "src/**/*",
+    "src/**/*.json",
+    "types/**/*",
+    "typings.d.ts",
+    "../../types/**/*",
+    "vite.config.mjs"
+  ],
+  "references": [
+    {
+      "path": "../utils"
+    },
+    {
+      "path": "../types"
+    },
+    {
+      "path": "../constants/"
+    },
+    {
+      "path": "../core/"
+    }
+  ],
+  "compilerOptions": {
+    "outDir": "./build",
+    "paths": {
+      "@/3DTextEffect/*": [
+        "./src/3DTextEffect/*"
+      ],
+      "@/action-bar-dropdown-content/*": [
+        "./src/action-bar-dropdown-content/*"
+      ],
+      "@/box/*": [
+        "./src/box/*"
+      ],
+      "@/button/*": [
+        "./src/button/*"
+      ],
+      "@/date-range-tabs/*": [
+        "./src/date-range-tabs/*"
+      ],
+      "@/debounce-search/*": [
+        "./src/debounce-search/*"
+      ],
+      "@/dialog/*": [
+        "./src/dialog/*"
+      ],
+      "@/file-image/*": [
+        "./src/file-image/*"
+      ],
+      "@/filter-table/*": [
+        "./src/filter-table/*"
+      ],
+      "@/finetune-form/*": [
+        "./src/finetune-form/*"
+      ],
+      "@/flexable/*": [
+        "./src/flexable/*"
+      ],
+      "@/form/*": [
+        "./src/form/*"
+      ],
+      "@/form-item/*": [
+        "./src/form-item/*"
+      ],
+      "@/free-tip/*": [
+        "./src/free-tip/*"
+      ],
+      "@/global-header/*": [
+        "./src/global-header/*"
+      ],
+      "@/hooks/*": [
+        "./src/hooks/*"
+      ],
+      "@/icon/*": [
+        "./src/icon/*"
+      ],
+      "@/icon-text/*": [
+        "./src/icon-text/*"
+      ],
+      "@/imp-llama-model/*": [
+        "./src/imp-llama-model/*"
+      ],
+      "@/infer-price/*": [
+        "./src/infer-price/*"
+      ],
+      "@/info-card/*": [
+        "./src/info-card/*"
+      ],
+      "@/input-output-tag/*": [
+        "./src/input-output-tag/*"
+      ],
+      "@/invite-link/*": [
+        "./src/invite-link/*"
+      ],
+      "@/link/*": [
+        "./src/link/*"
+      ],
+      "@/log-info/*": [
+        "./src/log-info/*"
+      ],
+      "@/login/*": [
+        "./src/login/*"
+      ],
+      "@/model-name-form/*": [
+        "./src/model-name-form/*"
+      ],
+      "@/model-select/*": [
+        "./src/model-select/*"
+      ],
+      "@/msg-content-parser/*": [
+        "./src/msg-content-parser/*"
+      ],
+      "@/param-item/*": [
+        "./src/param-item/*"
+      ],
+      "@/price/*": [
+        "./src/price/*"
+      ],
+      "@/provider/*": [
+        "./src/provider/*"
+      ],
+      "@/rich/*": [
+        "./src/rich/*"
+      ],
+      "@/rich-render/*": [
+        "./src/rich-render/*"
+      ],
+      "@/sequence-image/*": [
+        "./src/sequence-image/*"
+      ],
+      "@/status-search-button/*": [
+        "./src/status-search-button/*"
+      ],
+      "@/summary-tag/*": [
+        "./src/summary-tag/*"
+      ],
+      "@/svg-icon/*": [
+        "./src/svg-icon/*"
+      ],
+      "@/title/*": [
+        "./src/title/*"
+      ],
+      "@/upload-image/*": [
+        "./src/upload-image/*"
+      ],
+      "@/user/*": [
+        "./src/user/*"
+      ],
+      "@/utils/*": [
+        "./src/utils/*"
+      ],
+      "@/wx-agent-qrcode/*": [
+        "./src/wx-agent-qrcode/*"
+      ],
+      "@llama-fa/component": [
+        "./src/component/*"
+      ]
+    }
+  }
+}

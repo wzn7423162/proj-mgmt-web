@@ -1,0 +1,48 @@
+.img-item {
+    margin: 5px 0;
+    display: flex;
+    align-items: flex-start;
+    border: 1px dashed #424242;
+    border-radius: 3px;
+    padding: 10px;
+    position: relative;
+    overflow: hidden;
+    .btn_close {
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 100;
+    }
+    .img , .img_placeholder{
+        width: 100px;
+        height: 100px;
+        color: var(--font-color);
+        font-size: 12px;
+        text-align: center;
+    }
+    .img_placeholder {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    :global {
+        .ant-form {
+            flex: 1;
+            text-align: left;
+        }
+        .ant-form-item-horizontal {
+            .ant-form-item-row {
+                display: flex;
+                flex-direction: row;
+                margin: 4px 0;
+                .ant-form-item-label {
+                    width: 120px;
+                    text-align: right;
+                }
+                .ant-form-item-control {
+                    flex: 1;
+                }
+            }
+        }
+    }
+}

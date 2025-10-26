@@ -1,0 +1,73 @@
+.form-container {
+  background: var(--form-bg-color, #1a1c20);
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 900px;
+  width: 100%;
+  :global {
+    .ant-input-outlined {
+      border-width: 0 !important;
+    }
+    .ant-select-selector {
+      border-width: 0 !important;
+    }
+
+    .ant-upload-drag {
+      border-width: 0 !important;
+    }
+
+    .ant-form-item-explain-error {
+      font-size: 12px;
+    }
+
+    .ant-btn-variant-outlined {
+      border-color: transparent;
+    }
+
+    .w-md-editor-toolbar {
+      border-bottom: 0px solid transparent;
+    }
+
+    .ant-upload-select {
+      border: none !important;
+    }
+
+    .ant-upload-disabled {
+      color: var(--font-color) !important;
+    }
+    .ant-btn-variant-link {
+      color: #2a69ff !important;
+    }
+    // 为错误提示和额外说明留出垂直间距，避免与上传列表贴在一起
+    .ant-form-item-explain,
+    .ant-form-item-extra {
+      margin-top: 8px;
+    }
+  }
+}
+
+.form-container-right {
+  width: 480px;
+  margin-left: 16px;
+}
+.form_btn {
+  width: 330px;
+  height: 45px;
+  display: block;
+  margin: 20px auto;
+  position: static;
+  left: auto;
+  transform: none;
+
+  &.form_btn_has_right {
+    /* 保留旧类，但现在不需要位移 */
+  }
+}
+
+/* 提交区容器：与左侧 form-container 等宽，并在其中居中 */
+.submitter-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 0;
+}

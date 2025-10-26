@@ -1,0 +1,71 @@
+.task-mode {
+  padding: 20px;
+
+  .mode-info-container {
+    display: flex;
+    align-items: center;
+    overflow: auto;
+  }
+
+  .mode-infos {
+    flex: 1;
+    display: grid;
+    // grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: minmax(300px, 1fr) minmax(300px, 1fr) minmax(300px, 1fr); // 第
+    gap: 24px;
+    align-items: center;
+  }
+
+  .children-container {
+    // margin-top: 95px;
+    margin-left: 24px;
+  }
+
+  .form-container {
+    margin-top: 24px;
+    min-height: 60px;
+
+    .max-run-times {
+      :global {
+        .ant-input-number-wrapper {
+          display: flex;
+          color: rgba(0, 0, 0, 0.88);
+        }
+
+        .ant-input-number {
+          width: 56px;
+          border-radius: 4px;
+
+          input {
+            font-size: 20px;
+            text-align: center;
+            padding: 0;
+          }
+        }
+
+        .ant-input-number-group-addon {
+          background-color: #fff;
+          border-radius: 4px;
+          padding: 0;
+          width: 32px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+      .operation {
+        display: inline;
+        cursor: pointer;
+        font-size: 24px;
+        line-height: 24px;
+        user-select: none;
+        display: flex;
+        transform: translate(1px, -3px);
+      }
+    }
+  }
+}
+
+.remind-text {
+  color: rgba(0, 0, 0, 0.45);
+}

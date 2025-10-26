@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.summaryTag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 67px;
+  height: 32px;
+  padding: 0 6.5px;
+  border-radius: 16px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 32px;
+  border: 1px solid transparent;
+}
+
+.totalTag {
+  @extend .summaryTag;
+  background: rgba(24, 144, 255, 0.08); // blue 8%
+  color: #1890ff;
+  border-color: rgba(24, 144, 255, 0.1);
+}
+
+.balanceTag {
+  @extend .summaryTag;
+  background: rgba(250, 173, 20, 0.08); // orange
+  color: #faad14;
+  border-color: rgba(250, 173, 20, 0.1);
+}

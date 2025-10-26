@@ -1,0 +1,110 @@
+{
+  "name": "llama-factroy-online",
+  "version": "0.0.1",
+  "author": "llm-fa",
+  "description": "llama-factory-online",
+  "scripts": {
+    "preinstall": "npx only-allow pnpm ",
+    "clean:all": "pnpm run clean:dist && pnpm run clean:modules",
+    "clean:modules": "pnpm -rc exec rm -rf node_modules && pnpm -c exec rm -rf ./node_modules",
+    "clean:dist": "pnpm -rc exec rm -rf *.tsbuildinfo .cache build dist .hash",
+    "clean-install": "pnpm run clean:modules && pnpm i",
+    "format": "prettier --write .",
+    "lint": "eslint '{packages,projects}/*/{src,types}/**.{ts,tsx,js,jsx}'",
+    "dev": "pnpm --filter @proj-mgmt/admin run dev",
+    "dev:local": "pnpm --filter @proj-mgmt/admin run dev:local",
+    "build": "pnpm --filter @proj-mgmt/admin run build",
+    "build:test": "pnpm --filter @proj-mgmt/admin run build:test",
+    "build:feature": "pnpm --filter @proj-mgmt/admin run build:feature",
+    "build:bugfix": "pnpm --filter @proj-mgmt/admin run build:bugfix",
+    "build:infer": "pnpm --filter @proj-mgmt/admin run build",
+    "fix:tsconfig": "node ./scripts/typescript/fixPaths.mjs"
+  },
+  "devDependencies": {
+    "@laynezh/vite-plugin-lib-assets": "^1.1.0",
+    "@llama-fa/compile": "workspace:*",
+    "@prettier/plugin-oxc": "^0.0.4",
+    "@rsbuild/core": "1.5.12",
+    "@rsbuild/plugin-less": "1.5.0",
+    "@rsbuild/plugin-react": "1.4.0",
+    "@rsbuild/plugin-sass": "1.4.0",
+    "@rsbuild/plugin-svgr": "1.2.2",
+    "@rsdoctor/rspack-plugin": "1.1.2",
+    "@rspack/core": "1.5.7",
+    "@rspack/cli": "^1.2.3",
+    "@types/lodash": "4.14.202",
+    "@types/node": "~20.17.10",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.0",
+    "@types/react-syntax-highlighter": "^15.5.13",
+    "@vitejs/plugin-react-swc": "^3.3.2",
+    "chalk": "^4.1.2",
+    "chokidar": "^4.0.3",
+    "concurrently": "^8.2.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^9.24.0",
+    "execa": "^5.1.1",
+    "fast-glob": "^3.3.2",
+    "fs-extra": "^10.1.0",
+    "husky": "^7.0.4",
+    "json5": "^2.2.3",
+    "lint-staged": "^12.5.0",
+    "lodash": "^4.17.21",
+    "minimist": "^1.2.8",
+    "npm-run-all": "^4.1.5",
+    "only-allow": "^1.1.1",
+    "prettier": "^3.6.1",
+    "rollup": "^2.79.1",
+    "rollup-plugin-visualizer": "^5.12.0",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3",
+    "vite": "^6.2.3",
+    "vite-plugin-externalize-deps": "^0.8.0",
+    "vite-plugin-image-optimizer": "^1.1.8"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx,json,less,scss,yml,yaml,md}": [
+      "prettier --write --ignore-unknown"
+    ],
+    "{packages,projects}/*/{src,types}/**/*.{ts,tsx,js,jsx}": [
+      "eslint"
+    ],
+    "{packages,projects}/**/*.d.ts": [
+      "eslint --ext .ts"
+    ]
+  },
+  "packageManager": "pnpm@9.14.2",
+  "engines": {
+    "npm": "only-allow-pnpm",
+    "yarn": "only-allow-pnpm",
+    "node": ">= 18"
+  },
+  "pnpm": {
+    "overrides": {
+      "typescript": "^5.7.3",
+      "@rsbuild/core": "1.5.12",
+      "@rsbuild/plugin-less": "1.5.0",
+      "@rsbuild/plugin-react": "1.4.0",
+      "@rsbuild/plugin-sass": "1.4.0",
+      "@rsbuild/plugin-svgr": "1.2.2",
+      "@rsdoctor/rspack-plugin": "1.1.2",
+      "@rspack/core": "1.5.7",
+      "ahooks": "^3.7.8",
+      "react": "18.3.1",
+      "react-dom": "18.3.1",
+      "@llama-fa/compile": "workspace:*",
+      "@llama-fa/utils": "workspace:*",
+      "eslint": "^9.24.0",
+      "openai": "4.52.7"
+    },
+    "peerDependencyRules": {},
+    "patchedDependencies": {},
+    "allowNonAppliedPatches": true
+  },
+  "dependencies": {
+    "@modelcontextprotocol/server-filesystem": "^2025.3.28",
+    "rc-virtual-list": "^3.19.1",
+    "react-syntax-highlighter": "^15.6.1"
+  }
+}

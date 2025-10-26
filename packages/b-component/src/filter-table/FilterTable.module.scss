@@ -1,0 +1,106 @@
+.filterTable {
+  width: 100%;
+
+  .select-or-input-filter-col {
+    width: 100px;
+  }
+
+  :global {
+    .ant-pro-card-body {
+      padding: 0;
+    }
+
+
+    .ant-pro-query-filter-row{
+      width: 100%;
+    }
+
+
+
+    .ant-pro-table-list-toolbar-container {
+      padding: 0;
+      justify-content: flex-start;
+    }
+
+
+    .ant-pro-table-list-toolbar-right {
+      padding: 0;
+      justify-content: flex-end;
+    }
+
+
+    .ant-pro-query-filter-row-split:last-child {
+      margin-block-end: 16px !important;
+    }
+
+    .ant-pro-query-filter {
+      padding: 0;
+    }
+
+    // .ant-pro-table-search {
+    //   margin-bottom: 0;
+    //   background-color: #fff;
+    //   border-radius: 4px;
+    //   padding: 0;
+    // }
+
+    .ant-pagination {
+      margin: 16px 0 !important;
+    }
+
+
+
+    .ant-table-thead .ant-table-cell .anticon-question-circle,
+    .ant-table-cell .anticon-info-circle {
+      display: none !important;
+    }
+
+    // /* 切换 pageSize 触发 loading 时，Spin 会给容器加 ant-spin-blur 类，此时去掉所有行底部边框避免闪线 */
+    // .ant-spin-blur {
+    //   .ant-table-tbody > tr > td {
+    //     border-bottom: none !important;
+    //   }
+    // }
+  }
+}
+
+.borderlessTable {
+  :global {
+    .ant-table-thead>tr>th {
+      border-bottom: none !important;
+      // background-color: #f5f7fa;
+      font-weight: 500;
+    }
+
+    .ant-table-thead+.ant-table-tbody {
+      border-top: none !important;
+    }
+
+    /* 彻底移除所有行底部边框，避免分页切换时出现多条黑线 */
+    .ant-table-tbody>tr>td {
+      border-bottom: none !important;
+    }
+
+    .ant-table-tbody>tr:last-child>td {
+      border-bottom: none !important;
+    }
+
+    .ant-table {
+      border-bottom: none !important;
+    }
+
+    .ant-table-container {
+      border-bottom: none !important;
+      min-height: 350px;
+      // max-height: 800px;
+      overflow-y: auto;
+    }
+  }
+}
+
+.tooltipCell {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 250px;
+}

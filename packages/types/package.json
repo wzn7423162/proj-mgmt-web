@@ -1,0 +1,28 @@
+{
+  "name": "@llama-fa/types",
+  "version": "0.0.1",
+  "description": "",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "import": "./src/index.ts",
+      "require": "./src/index.ts",
+      "build": "./dist/index.mjs"
+    },
+    "./infer": {
+      "types": "./src/infer/index.ts",
+      "import": "./src/infer/index.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch"
+  },
+  "dependencies": {
+    "antd": "^5.26.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

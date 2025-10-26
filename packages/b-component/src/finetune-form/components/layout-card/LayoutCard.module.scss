@@ -1,0 +1,24 @@
+.finetune-layout-card {
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: var(--box-bg-color, rgba(255, 255, 255, 0.8));
+
+  .title-row {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    overflow: auto;
+    padding: 20px;
+    align-items: center;
+
+    .title {
+      font-weight: 500;
+      font-size: 16px;
+      color: var(--font-color,rgba(0, 0, 0, 0.88));
+      line-height: 24px;
+    }
+
+    .extra {
+      overflow: auto;
+    }
+  }
+}

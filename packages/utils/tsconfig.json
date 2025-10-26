@@ -1,0 +1,63 @@
+{
+  "exclude": [
+    "build",
+    "tests"
+  ],
+  "include": [
+    "src/**/*",
+    "types/**/*",
+  ],
+  "compilerOptions": {
+    "composite": true,
+    "declaration": true,
+    "types": ["node"],
+    "outDir": "./build",
+    "paths": {
+      "@/auth/*": [
+        "./src/auth/*"
+      ],
+      "@/base-idb-store/*": [
+        "./src/base-idb-store/*"
+      ],
+      "@/base-processor/*": [
+        "./src/base-processor/*"
+      ],
+      "@/base-service/*": [
+        "./src/base-service/*"
+      ],
+      "@/data-cell/*": [
+        "./src/data-cell/*"
+      ],
+      "@/hook-executor/*": [
+        "./src/hook-executor/*"
+      ],
+      "@/hooks/*": [
+        "./src/hooks/*"
+      ],
+      "@/open-ai-client/*": [
+        "./src/open-ai-client/*"
+      ],
+      "@/request/*": [
+        "./src/request/*"
+      ],
+      "@/router/*": [
+        "./src/router/*"
+      ],
+      "@/state-tissue/*": [
+        "./src/state-tissue/*"
+      ],
+      "@/state-utils/*": [
+        "./src/state-utils/*"
+      ],
+      "@/storage/*": [
+        "./src/storage/*"
+      ],
+      "@/user/*": [
+        "./src/user/*"
+      ],
+      "@/utils/*": [
+        "./src/utils/*"
+      ]
+    }
+  }
+}

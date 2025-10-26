@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "@llama-fa/compile/config/tsconfig.options.json",
+  "files": [],
+  "exclude": [],
+  "include": [
+    "src/**/*",
+    "typings.d.ts",
+    "electron.d.ts",
+    "../../types/**/*"
+ ],
+  "compilerOptions": {
+    "lib": [
+      "ESNext",
+      "DOM"
+    ],
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    }
+  },
+  "references": [
+    {
+      "path": "../../packages/utils"
+    },
+    {
+      "path": "../../packages/constants/"
+    },
+    {
+      "path": "../../packages/types/"
+    },
+    {
+      "path": "../../packages/b-component/"
+    },
+    {
+      "path": "../../packages/core/"
+    }
+  ]
+}

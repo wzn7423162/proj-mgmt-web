@@ -1,0 +1,35 @@
+.statusGroup {
+  display: inline-flex;
+
+  .statusBtn {
+    height: 32px;
+  }
+
+  :global {
+    // .ant-radio-button-wrapper {
+    //   border-radius: 0;
+    //   border: 1px solid #d9d9d9;
+    //   font-size: 14px;
+    //   padding: 6px 24px;
+    //   height: 40px;
+    //   display: flex;
+    //   align-items: center;
+
+    //   &:first-child {
+    //     border-top-left-radius: 8px;
+    //     border-bottom-left-radius: 8px;
+    //   }
+
+    //   &:last-child {
+    //     border-top-right-radius: 8px;
+    //     border-bottom-right-radius: 8px;
+    //   }
+
+    //   &.ant-radio-button-wrapper-checked {
+    //     border-color: #1677ff;
+    //     color: #1677ff;
+    //     background: #e6f4ff;
+    //   }
+    // }
+  }
+}

@@ -1,0 +1,54 @@
+.resouce-info-card {
+  width: 100%;
+  background-image: url('@llama-fa/constants/assets/images/finetune/resource_card_back.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  border-radius: 6px;
+
+  &.selected {
+    border: 1px solid #2a69ff;
+  }
+
+  .content {
+    padding: 20px;
+
+    .title {
+      font-weight: 500;
+      font-size: 16px;
+      color: rgba(0, 0, 0, 0.88);
+      line-height: 24px;
+    }
+
+    .info-grid {
+      margin-top: 16px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+
+      .grid-item {
+        display: flex;
+        align-items: center;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 22px;
+
+        .item-label {
+          color: rgba(0, 0, 0, 0.45);
+          margin-right: 4px;
+        }
+        .item-value {
+          color: rgba(0, 0, 0, 0.88);
+        }
+      }
+    }
+  }
+
+  .price {
+    height: 48px;
+    line-height: 48px;
+    padding: 0 20px;
+    background: rgba(255, 255, 255, 0.5);
+    border-top: 1px solid #ffffff;
+    display: flex;
+    align-items: center;
+  }
+}

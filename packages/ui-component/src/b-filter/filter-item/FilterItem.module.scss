@@ -1,0 +1,22 @@
+.item {
+  margin-top: 16px;
+
+  .title {
+    font-weight: 400;
+    font-size: 14px;
+    color: #95A3AA;
+    margin-bottom: 20px;
+  }
+
+  .list {
+    display: grid;
+    /* Fixed 3 columns per row, evenly spaced */
+    grid-template-columns: repeat(3, 1fr);
+    /* Gap between rows and columns */
+    gap: 12px;
+    /* Fill the parent container width */
+    width: 100%;
+    /* Do not stretch child items vertically */
+    align-items: start;
+  }
+}

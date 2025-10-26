@@ -1,0 +1,27 @@
+.button {
+  width: 189px;
+  height: 36px;
+  // background: #3A404F;
+  background: #101317;
+  border-radius: 4px;
+
+  /* 超出一行时省略显示 */
+  box-sizing: border-box;
+  padding: 0 12px;
+  /* 给左右留白，避免文字贴边 */
+  white-space: nowrap;
+  /* 不换行 */
+  overflow: hidden;
+  /* 隐藏超出部分 */
+  text-overflow: ellipsis;
+  /* 使用省略号 */
+  line-height: 36px;
+  text-align: center;
+  cursor: pointer;
+    color: #95A3AA;
+}
+
+.active {
+  background: #2A69FF;
+  color:white
+}

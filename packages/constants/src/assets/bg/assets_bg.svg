@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="338px" height="144px" viewBox="0 0 338 144" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>资产库背景</title>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#F9F0FF" stop-opacity="0.75" offset="0%"></stop>
+            <stop stop-color="#F9F0FF" stop-opacity="0.25" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+        <rect id="path-3" x="0" y="0" width="338" height="144" rx="8"></rect>
+        <radialGradient cx="50%" cy="50%" fx="50%" fy="50%" r="50%" id="radialGradient-5">
+            <stop stop-color="#FFFFFF" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0" offset="49.9265177%"></stop>
+            <stop stop-color="#FFFFFF" offset="100%"></stop>
+        </radialGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-6">
+            <stop stop-color="#B37FEB" stop-opacity="0.1" offset="0%"></stop>
+            <stop stop-color="#B37FEB" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="页面-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="控制台" transform="translate(-1518, -320)">
+            <g id="编组-9" transform="translate(1518, 132)">
+                <g id="资产库背景" transform="translate(0, 188)">
+                    <rect id="矩形备份-9" stroke="#F9F0FF" fill="url(#linearGradient-1)" x="0.5" y="0.5" width="337" height="143" rx="8"></rect>
+                    <g id="椭圆形">
+                        <mask id="mask-4" fill="white">
+                            <use xlink:href="#path-3"></use>
+                        </mask>
+                        <use id="蒙版" fill="url(#linearGradient-2)" xlink:href="#path-3"></use>
+                        <circle fill="url(#radialGradient-5)" mask="url(#mask-4)" cx="74.5" cy="-5.5" r="105.5"></circle>
+                    </g>
+                    <g id="编组" transform="translate(261, 64)" fill="url(#linearGradient-6)" fill-rule="nonzero">
+                        <path d="M23.2360301,30.7580115 L2.22877862,20.6152079 C1.45073227,20.2512317 0.518697541,20.5666777 0.153988321,21.3431603 C0.0486279049,21.5534577 0,21.8122852 0,22.0144942 L0,45.2038226 C0,46.3442814 0.624058024,47.3795915 1.60472059,47.8972466 L22.7173326,59.7547826 C23.4953789,60.1672889 24.4274137,59.9084614 24.8407507,59.1885973 C24.994739,58.9297698 25.0514716,58.6709423 25.0514716,58.4121147 L25.0514716,33.5565841 C25.0028437,32.3675951 24.2734253,31.2756665 23.2360301,30.7580115 Z M29.8251102,0.272982148 L54.7712214,10.8363805 C55.5492677,11.1437382 55.9139769,11.9768392 55.5978957,12.7533219 C55.4439074,13.1658282 55.127826,13.4812742 54.7712214,13.5783346 L29.8251102,24.1336445 C28.9417033,24.4976207 28.0096687,24.4976207 27.1262619,24.1336445 L2.18015071,13.5783346 C1.40210437,13.2709769 1.03739515,12.4378758 1.35347646,11.6613932 C1.50746478,11.2488868 1.82354617,10.9334408 2.18015071,10.8363805 L27.1262619,0.272982148 C28.0096687,-0.0909940494 28.9417034,-0.0909940494 29.8251102,0.272982148 Z M54.7712214,20.6152079 C55.5492677,20.2512317 56.4813025,20.5666777 56.8460117,21.3431603 C56.9513721,21.5534577 57,21.8122852 57,22.0144942 L57,45.2038226 C57,46.3442814 56.375942,47.3795915 55.3952794,47.9457768 L34.2826674,59.8033127 C33.5046211,60.2158191 32.5725863,59.9569916 32.1592493,59.2371275 C32.005261,59.0268301 31.9485284,58.7194725 31.9485284,58.4606449 L31.9485284,33.6051142 C31.9485284,32.4161253 32.6212143,31.3241966 33.715342,30.8065416 L54.7712214,20.6152079 L54.7712214,20.6152079 Z" id="形状"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

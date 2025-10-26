@@ -1,0 +1,409 @@
+.fluentEditor {
+  position: relative;
+  overflow: visible;
+  z-index: 10000;           /* 新增：容器整体抬高 */
+  isolation: isolate;       /* 新增：切断父级透明/滤镜合成 */
+
+  :global(.ql-toolbar) {
+    z-index: 10001;
+  }
+
+  :global(.ql-snow .ql-picker-options),
+  :global(.ql-tooltip) {
+    background-color: #262b3a !important;   /* 不透明深色 */
+    color: #e8eaf6 !important;
+    border: 1px solid #333543 !important;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.55) !important;
+
+    mix-blend-mode: normal !important;      /* 禁止与底层混合 */
+    backdrop-filter: none !important;       /* 禁止毛玻璃 */
+    opacity: 1 !important;                  /* 完全不透明 */
+    z-index: 30000 !important;              /* 置于页面其他浮层之上 */
+  }
+
+  :global(.ql-container) {
+    border: 1px solid rgb(230, 232, 242) !important;
+    border-radius: 6px !important;
+  }
+
+  :global(.ql-toolbar) {
+    border: 1px solid rgb(230, 232, 242) !important;
+    border-bottom: none !important;
+    border-radius: 6px 6px 0 0 !important;
+  }
+
+  // 更高优先级的选择器
+  :global(.ql-snow) {
+    :global(.ql-container) {
+      border: 1px solid rgb(230, 232, 242) !important;
+      border-radius: 6px !important;
+    }
+
+    :global(.ql-toolbar) {
+      border: 1px solid rgb(230, 232, 242) !important;
+      border-bottom: none !important;
+      border-radius: 6px 6px 0 0 !important;
+    }
+  }
+  :global(.ql-editor) {
+    ol {
+      padding-left: 0;
+    }
+  }
+
+  :global(.ql-counter) {
+    position: absolute;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.45);
+    border: none;
+  }
+}
+
+// 深色主题覆盖：挂在容器的 data 属性上
+.fluentEditor[data-color-mode='dark'] {
+  :global(.ql-toolbar),
+  :global(.ql-toolbar.ql-snow) {
+    background-color: #191D24 !important;
+    border-color: #333543 !important;
+    color: #e8eaf6 !important;
+  }
+
+  :global(.ql-snow .ql-toolbar .ql-picker-label),
+  :global(.ql-snow .ql-toolbar .ql-picker-item),
+  :global(.ql-snow .ql-toolbar button) {
+    color: #e8eaf6 !important;
+    opacity: 0.9 !important;
+  }
+
+  :global(.ql-toolbar button .ql-stroke),
+  :global(.ql-toolbar .ql-picker-label .ql-stroke),
+  :global(.ql-toolbar .ql-picker-item .ql-stroke) {
+    stroke: #e8eaf6 !important;
+  }
+
+  :global(.ql-toolbar button .ql-fill),
+  :global(.ql-toolbar .ql-picker-label .ql-fill),
+  :global(.ql-toolbar .ql-picker-item .ql-fill) {
+    fill: #e8eaf6 !important;
+  }
+
+  :global(.ql-toolbar button:hover:not(.ql-disabled)),
+  :global(.ql-toolbar .ql-picker-label:hover) {
+    opacity: 1 !important;
+    background-color: #2a2e44 !important;
+  }
+
+  :global(.ql-toolbar button.ql-active),
+  :global(.ql-toolbar .ql-picker-label.ql-active) {
+    opacity: 1 !important;
+    background-color: #343a58 !important;
+    border-color: #596080 !important;
+  }
+
+  :global(.ql-snow .ql-picker-options .ql-picker-item:hover),
+  :global(.ql-snow .ql-picker-options .ql-picker-item.ql-selected) {
+    color: #ffffff !important;
+    background-color: #2a2e44 !important;
+  }
+
+  :global(.ql-toolbar button.ql-disabled) {
+    opacity: 0.5 !important;
+  }
+
+  :global(.ql-container .ql-editor.ql-blank::before) {
+    color: #b8c1d6 !important;
+  }
+
+  :global(.ql-container),
+  :global(.ql-container.ql-snow) {
+    background-color: #141419 !important;  /* 补上深色背景 */
+    border-color: #333543 !important;
+    border-radius: 0 0 6px 6px !important;
+  }
+
+  :global(.ql-container .ql-editor) {
+    color: #e8eaf6 !important;
+    background-color: transparent !important;
+  }
+  :global(.ql-container .ql-editor.ql-blank::before) {
+    color: #9aa1b2 !important;
+  }
+
+  :global(.ql-snow .ql-picker-options),
+  :global(.ql-tooltip) {
+    background-color: #1f2233 !important;
+    color: #e8eaf6 !important;
+    border-color: #333543 !important;
+
+    opacity: 1 !important;              /* 关键：去掉 0.95 半透明 */
+    mix-blend-mode: normal !important;  /* 禁止与底部内容混合 */
+    z-index: 30000 !important;          /* 与上面保持一致 */
+  }
+
+  :global(.ql-counter) {
+    color: rgba(255, 255, 255, 0.45) !important;
+  }
+
+  // 强制工具栏和内部项不透明，提升对比度
+  :global(.ql-toolbar) {
+    opacity: 1 !important;
+    filter: none !important;
+  }
+  :global(.ql-toolbar .ql-formats > *) {
+    opacity: 1 !important;
+    margin: 0 !important;
+  }
+
+  // 按钮/选择器文字与图标统一高对比白色
+  :global(.ql-snow .ql-toolbar button),
+  :global(.ql-snow .ql-toolbar .ql-picker-label),
+  :global(.ql-snow .ql-toolbar .ql-picker-item) {
+    color: #ffffff !important;
+    opacity: 1 !important;
+  }
+  :global(.ql-snow .ql-stroke),
+  :global(.ql-toolbar .ql-picker-label .ql-stroke),
+  :global(.ql-toolbar .ql-picker-item .ql-stroke) {
+    stroke: #ffffff !important;
+  }
+  :global(.ql-snow .ql-fill),
+  :global(.ql-toolbar .ql-picker-label .ql-fill),
+  :global(.ql-toolbar .ql-picker-item .ql-fill) {
+    fill: #ffffff !important;
+  }
+
+  // 工具栏整体保持高亮
+  :global(.ql-toolbar),
+  :global(.ql-toolbar .ql-formats),
+  :global(.ql-toolbar *:not(.ql-picker-options)) {
+    filter: none !important;
+    opacity: 1 !important;
+    margin: 0;
+  }
+
+  // 按钮、选择器文字全亮
+  :global(.ql-snow .ql-toolbar button),
+  :global(.ql-snow .ql-toolbar .ql-picker-label),
+  :global(.ql-snow .ql-toolbar .ql-picker-item) {
+    color: #ffffff !important;
+    opacity: 1 !important;
+  }
+
+  // 图标线条与填充全亮
+  :global(.ql-toolbar svg),
+  :global(.ql-toolbar .ql-stroke),
+  :global(.ql-toolbar .ql-fill) {
+    stroke: #ffffff !important;
+    fill: #ffffff !important;
+    opacity: 1 !important;
+  }
+
+  // 禁用项也保持可读的高亮
+  :global(.ql-toolbar .ql-disabled),
+  :global(.ql-toolbar button:disabled),
+  :global(.ql-toolbar .ql-picker-label.ql-disabled) {
+    opacity: 1 !important;
+    color: #ffffff !important;
+  }
+  :global(.ql-toolbar .ql-disabled .ql-stroke),
+  :global(.ql-toolbar .ql-disabled .ql-fill) {
+    stroke: #dfe5ff !important;
+    fill: #dfe5ff !important;
+  }
+
+  // 统一提升不透明度，去掉模糊滤镜
+  :global(.ql-toolbar),
+  :global(.ql-toolbar .ql-formats),
+  :global(.ql-toolbar *:not(.ql-picker-options)) {
+    opacity: 1 !important;
+    filter: none !important;
+  }
+
+  // 图标与文字全部高对比
+  :global(.ql-toolbar svg),
+  :global(.ql-toolbar .ql-stroke),
+  :global(.ql-toolbar .ql-fill) {
+    opacity: 1 !important;
+    stroke: #ffffff !important;
+    fill: #ffffff !important;
+  }
+  :global(.ql-snow .ql-toolbar button),
+  :global(.ql-snow .ql-toolbar .ql-picker-label),
+  :global(.ql-snow .ql-toolbar .ql-picker-item) {
+    color: #ffffff !important;
+    opacity: 1 !important;
+  }
+
+  // 禁用态仍保持可读（轻微降低对比）
+  :global(.ql-toolbar .ql-disabled),
+  :global(.ql-toolbar button:disabled),
+  :global(.ql-toolbar .ql-picker-label.ql-disabled) {
+    opacity: 0.95 !important;
+  }
+  :global(.ql-toolbar .ql-disabled .ql-stroke),
+  :global(.ql-toolbar .ql-disabled .ql-fill) {
+    stroke: #cfd3e7 !important;
+    fill: #cfd3e7 !important;
+  }
+
+  // 悬停/激活保持高对比（已存在的规则保留）
+  :global(.ql-toolbar button:hover:not(.ql-disabled)),
+  :global(.ql-toolbar .ql-picker-label:hover) {
+    opacity: 1 !important;
+    background-color: #2a2e44 !important;
+  }
+  :global(.ql-toolbar button.ql-active),
+  :global(.ql-toolbar .ql-picker-label.ql-active) {
+    opacity: 1 !important;
+    background-color: #343a58 !important;
+    border-color: #596080 !important;
+  }
+  // 强制“下标/上标”等文字类图标的伪元素变白
+  :global(.ql-toolbar .ql-formats button.ql-script::before),
+  :global(.ql-toolbar .ql-formats button.ql-script::after) {
+    color: #ffffff !important;
+    opacity: 1 !important;
+  }
+
+  // 文字型按钮本体及其内部节点统一白色
+  :global(.ql-snow .ql-toolbar .ql-formats button.ql-script),
+  :global(.ql-snow .ql-toolbar .ql-formats button.ql-script *) {
+    color: #ffffff !important;
+    opacity: 1 !important;
+  }
+  // 兜底：所有工具栏按钮的文本保持白色
+  :global(.ql-snow .ql-toolbar .ql-formats button),
+  :global(.ql-snow .ql-toolbar .ql-formats button *) {
+    color: #ffffff !important;
+  }
+
+  /* 统一设置：工具栏及其所有子元素使用白色，并去除透明度/滤镜 */
+  :global(.ql-toolbar),
+  :global(.ql-toolbar *:not(.ql-picker-options)) {
+    color: #ffffff !important;
+    opacity: 0.9 !important;
+    filter: none !important;
+  }
+
+  /* 关键：让所有 SVG/路径的描边与填充跟随 currentColor */
+  :global(.ql-toolbar svg),
+  :global(.ql-toolbar svg *),
+  :global(.ql-toolbar .ql-stroke),
+  :global(.ql-toolbar .ql-fill),
+  :global(.ql-toolbar path),
+  :global(.ql-toolbar rect),
+  :global(.ql-toolbar circle),
+  :global(.ql-toolbar polygon) {
+    stroke: currentColor !important;
+    fill: currentColor !important;
+    opacity: 1 !important; // 修复：原来是 0.1，导致发灰
+    filter: none !important;
+  }
+
+  /* 兜底：按钮、选择器文本/图标白色（防止更高优先级的规则覆盖） */
+  :global(.ql-snow .ql-toolbar button),
+  :global(.ql-snow .ql-toolbar .ql-picker-label),
+  :global(.ql-snow .ql-toolbar .ql-picker-item),
+  :global(.ql-snow .ql-toolbar button *),
+  :global(.ql-snow .ql-toolbar .ql-picker-label *),
+  :global(.ql-snow .ql-toolbar .ql-picker-item *) {
+    color: #ffffff !important;
+  }
+}
+
+.fluentEditor[data-color-mode='dark'] {
+  :global(.ql-toolbar),
+  :global(.ql-toolbar.ql-snow) {
+    background-color: #191D24 !important;
+    border-color: #333543 !important;
+    color: #e8eaf6 !important;
+  }
+
+  :global(.ql-snow .ql-toolbar .ql-picker-label),
+  :global(.ql-snow .ql-toolbar .ql-picker-item),
+  :global(.ql-snow .ql-toolbar button) {
+    color: #e8eaf6 !important;
+    opacity: 0.9 !important;
+  }
+
+  :global(.ql-toolbar button .ql-stroke),
+  :global(.ql-toolbar .ql-picker-label .ql-stroke),
+  :global(.ql-toolbar .ql-picker-item .ql-stroke) {
+    stroke: #e8eaf6 !important;
+  }
+
+  :global(.ql-toolbar button .ql-fill),
+  :global(.ql-toolbar .ql-picker-label .ql-fill),
+  :global(.ql-toolbar .ql-picker-item .ql-fill) {
+    fill: #e8eaf6 !important;
+  }
+
+  :global(.ql-toolbar button:hover:not(.ql-disabled)),
+  :global(.ql-toolbar .ql-picker-label:hover) {
+    opacity: 1 !important;
+    background-color: #2a2e44 !important;
+  }
+
+  :global(.ql-toolbar button.ql-active),
+  :global(.ql-toolbar .ql-picker-label.ql-active) {
+    opacity: 1 !important;
+    background-color: #343a58 !important;
+    border-color: #596080 !important;
+  }
+
+  :global(.ql-snow .ql-picker-options .ql-picker-item:hover),
+  :global(.ql-snow .ql-picker-options .ql-picker-item.ql-selected) {
+    color: #ffffff !important;
+    background-color: #2a2e44 !important;
+  }
+
+  :global(.ql-toolbar button.ql-disabled) {
+    opacity: 0.5 !important;
+  }
+
+  :global(.ql-container .ql-editor.ql-blank::before) {
+    color: #b8c1d6 !important;
+  }
+
+  :global(.ql-container),
+  :global(.ql-container.ql-snow) {
+    background-color: #141419 !important;  /* 补上深色背景 */
+    border-color: #333543 !important;
+    border-radius: 0 0 6px 6px !important;
+  }
+
+  :global(.ql-container .ql-editor) {
+    color: #e8eaf6 !important;
+    background-color: transparent !important;
+  }
+  :global(.ql-container .ql-editor.ql-blank::before) {
+    color: #9aa1b2 !important;
+  }
+
+  /* 深色主题下拉与 tooltip 完全不透明且抬层 */
+  :global(.ql-snow .ql-picker-options),
+  :global(.ql-tooltip) {
+    background-color: #262b3a !important;
+    color: #e8eaf6 !important;
+    border-color: #333543 !important;
+
+    mix-blend-mode: normal !important;
+    backdrop-filter: none !important;
+    opacity: 1 !important;
+    z-index: 30000 !important;
+  }
+
+  /* 关键修复：父级工具栏不再半透明 */
+  :global(.ql-toolbar) {
+    color: #ffffff !important;
+    opacity: 1 !important;          /* 从 0.9 修复为 1 */
+    filter: none !important;
+  }
+  :global(.ql-toolbar *:not(.ql-picker-options)) {
+    color: #ffffff !important;
+    opacity: 1 !important;
+    filter: none !important;
+  }
+
+  // ... existing code ...
+}

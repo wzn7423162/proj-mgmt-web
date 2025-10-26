@@ -1,0 +1,104 @@
+.p-form-item-horizontal {
+  margin-bottom: 5px;
+  :global {
+    .ant-form-item-row {
+      align-items: center;
+      flex-flow: row;
+      .ant-form-item-label {
+        padding: 0;
+      }
+    }
+    .anticon-info-circle {
+      padding-left: 4px;
+    }
+  }
+}
+
+.form-item-tip {
+  font-size: 12px;
+  color: var(--font-secondary-color);
+  padding: 0;
+  // margin: 0;
+}
+
+.footer-right {
+  :global {
+    .ant-btn-default {
+      width: 80px;
+      height: 38px;
+      background-color: var(--modelnameform-btn-bg, #333a45);
+      border-color: var(--modelnameform-btn-border, transparent);
+      color: var(--modelnameform-btn-color, var(--ant-color-text, rgba(0, 0, 0, 0.88)));
+      border-radius: 4px;
+      &:hover {
+        background-color: var(
+          --modelnameform-btn-hover-bg,
+          var(--ant-color-bg-text-hover, rgba(0, 0, 0, 0.02))
+        ) !important;
+        border-color: var(
+          --modelnameform-btn-border-hover,
+          var(--ant-color-primary, #1677ff)
+        ) !important;
+        color: var(--modelnameform-btn-color-hover, var(--ant-color-primary, #1677ff)) !important;
+      }
+      &:active {
+        background-color: var(
+          --modelnameform-btn-active-bg,
+          var(--ant-color-bg-text-active, rgba(0, 0, 0, 0.06))
+        ) !important;
+        border-color: var(
+          --modelnameform-btn-border-active,
+          var(--ant-color-primary-active, #0958d9)
+        ) !important;
+        color: var(
+          --modelnameform-btn-color-active,
+          var(--ant-color-primary-active, #0958d9)
+        ) !important;
+      }
+    }
+    .ant-btn-primary {
+      width: 80px;
+      height: 38px;
+      color: #fff;
+      background-image: linear-gradient(-55deg, #916bfd 0%, #2a69ff 90%);
+      border-radius: 4px;
+      border-color: transparent;
+      &:hover {
+        background-image: linear-gradient(-55deg, #916bfd 0%, #2a69ff 90%) !important;
+        opacity: 0.8 !important;
+      }
+    }
+  }
+}
+
+.successContent {
+  text-align: center;
+  padding: 40px 0;
+}
+
+.successIcon {
+  font-size: 48px;
+  color: #1677ff;
+  margin-bottom: 16px;
+}
+
+.successTitle {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.successDescription {
+  font-size: 12px;
+  color: #999;
+
+  a {
+    color: #1677ff;
+    cursor: pointer;
+    margin-left: 4px;
+    margin-right: 4px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

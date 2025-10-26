@@ -1,0 +1,68 @@
+.infre-price-container {
+  font-size: 14px;
+  color: var(--font-color);
+
+  .goods-price {
+    font-family: PingFangSC-Medium;
+    font-weight: 500;
+    color: #2a69ff !important;
+  }
+
+  .footer-icon {
+    color: #737d84 !important;
+    font-size: 16px;
+    cursor: pointer;
+  }
+}
+
+.price-text-tip {
+  width: 400px;
+  .tip-section {
+    line-height: 18px;
+    &:not(:first-of-type) {
+      margin-top: 10px;
+    }
+
+    .tip-title,
+    .tip-article {
+      display: block;
+      font-family: PingFangSC-Regular;
+      font-weight: 400;
+      font-size: 13px;
+      color: var(--font-color);
+      letter-spacing: 0;
+    }
+
+    .tip-article {
+      margin-top: 6px;
+      color: var(--font-secondary-color);
+    }
+  }
+}
+
+.pricingItem {
+  .pricingTitle {
+    font-size: 14px;
+    font-weight: 500;
+    color: #ffffff;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+
+    .text {
+      font-size: 14px;
+      color: #2a69ff;
+      margin: 0 4px;
+    }
+    .text2 {
+      font-size: 14px;
+      margin: 0 5px;
+    }
+  }
+
+  .pricingDesc {
+    font-weight: 400;
+    font-size: 13px;
+    color: #95a3aa;
+  }
+}

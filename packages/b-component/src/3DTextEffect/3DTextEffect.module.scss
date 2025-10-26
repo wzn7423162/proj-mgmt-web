@@ -1,0 +1,37 @@
+.scene {
+  position: absolute;
+  perspective-origin: center center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.textGroup {
+  position: absolute;
+  transform: translate(calc(-50% + 100px), calc(-50% + 50px)) rotateX(-15deg) rotateY(20deg) translateZ(0);
+  transform-style: preserve-3d;
+}
+
+.standingText {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  position: relative;
+  white-space: nowrap;
+  transform: rotateX(-5deg) rotateY(-65deg) translateZ(calc(0px));
+  transform-origin: center bottom;
+  letter-spacing: 2px;
+}
+
+.slantedText {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.8;
+  letter-spacing: 2px;
+  text-align: left;
+  white-space: nowrap;
+  transform:
+    rotateX(70deg) skewX(-30deg) rotateZ(35deg) translateY(calc(-30px)) translateZ(calc(15px));
+  transform-origin: left top;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}

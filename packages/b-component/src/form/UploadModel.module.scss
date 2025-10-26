@@ -1,0 +1,16 @@
+.upload_model {
+    :global {
+        .ant-upload.ant-upload-drag {
+            background-color: #101317;
+        }
+        /* 上传列表与拖拽区域内容留出间距 */
+        .ant-upload-list {
+            margin-top: 8px;
+        }
+    }
+    .upload_model_tip {
+        font-weight: 400;
+        font-size: 13px;
+        color: #67686B;
+    }
+}

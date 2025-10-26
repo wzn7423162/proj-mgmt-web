@@ -1,0 +1,23 @@
+/* FluentEditor 全局样式覆盖 */
+.ql-snow .ql-container {
+  border: 1px solid rgb(230, 232, 242) !important;
+  border-radius: 6px !important;
+}
+
+.ql-snow .ql-toolbar {
+  border: 1px solid rgb(230, 232, 242) !important;
+  border-bottom: none !important;
+  border-radius: 6px 6px 0 0 !important;
+}
+
+/* 确保编辑器容器的样式 */
+.ql-container {
+  border: 1px solid rgb(230, 232, 242) !important;
+ border-radius: 0 0  6px 6px !important;
+}
+
+.ql-toolbar {
+  border: 1px solid rgb(230, 232, 242) !important;
+  border-bottom: none !important;
+  border-radius: 6px 6px 0 0 !important;
+}

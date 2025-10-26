@@ -1,0 +1,97 @@
+@import './mixins/scroll';
+@import './rewriteAntd';
+
+.body,
+.ant-app {
+  @include scroll-bar;
+  font-family:
+    '思源黑体', 'PingFang SC', 'Microsoft YaHei', '微软雅黑', 'Arial', 'Helvetica', 'sans-serif';
+  color: #333333;
+}
+
+.clickable-text {
+  color: #2a69ff;
+  cursor: pointer;
+}
+
+.clickable-text-hover {
+  cursor: pointer;
+
+  &:hover {
+    color: #2a69ff;
+  }
+}
+
+.form-modal {
+  .ant-modal-content {
+    padding: 16px 20px 0 20px;
+  }
+
+  .ant-modal-header {
+    margin-bottom: 12px;
+  }
+
+  .ant-modal-body {
+    padding: 16px;
+
+    .ant-form-item-explain-error {
+      font-size: 12px;
+    }
+
+    .ant-form-item-label {
+      color: #333;
+    }
+  }
+
+  .ant-modal-footer {
+    margin-top: 0;
+    padding-top: 16px;
+    padding-bottom: 12px;
+    border-top: 1px solid #f0f0f0;
+
+    .ant-btn {
+      border-radius: 24px;
+      height: 40px;
+      padding: 10px 24px;
+    }
+
+  }
+}
+
+.alert-info {
+  background: rgba(42, 105, 255, 0.06);
+  border-radius: 4px;
+  border: 1px solid rgba(42, 105, 255, 0.1);
+}
+
+.content-padding {
+  padding: 14px 20px;
+  background-color: var(--bg-color, #fff);
+  height: 100%;
+}
+
+.price-history-detail-remind {
+  width: 300px;
+  height: 56px;
+  background: linear-gradient(92deg, #fff7e7 0%, #ffeecc 100%);
+  border-radius: 8px 8px 8px 8px;
+  padding: 8px 12px;
+  display: flex;
+  color: #311f07;
+  position: relative;
+  cursor: pointer;
+}
+
+.price-history-detail-remind-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(90deg, #f6d996 0%, #eebf5c 100%);
+  border-radius: 100px 100px 100px 100px;
+  width: 72px;
+  height: 20px;
+  position: absolute;
+  right: 12px;
+  bottom: 6px;
+  color: #161825;
+}

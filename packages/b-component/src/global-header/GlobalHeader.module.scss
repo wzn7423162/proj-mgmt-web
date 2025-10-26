@@ -1,0 +1,150 @@
+.btn-item {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  &:not(:first-of-type) {
+    margin-left: 24px;
+  }
+
+  :global {
+    .anticon {
+      margin-right: 6px;
+    }
+  }
+}
+
+.btn-item {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  &:not(:first-of-type) {
+    margin-left: 24px;
+  }
+
+  :global {
+    .anticon {
+      margin-right: 6px;
+    }
+  }
+}
+
+.user-avatar {
+  cursor: pointer;
+  margin-left: 40px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: #fff;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 0 4px 0 16px;
+
+  .name {
+    margin-right: 10px;
+  }
+
+  .avatar {
+    width: 32px;
+    height: 32px;
+    overflow: hidden;
+    border-radius: 16px;
+    object-fit: cover;
+  }
+}
+
+.contact-us {
+  width: 500px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.1);
+
+  :global {
+    .ant-popover-inner {
+      padding: 20px;
+    }
+
+    .ant-popover-title {
+      font-size: 16px;
+      color: #333333;
+    }
+  }
+
+  &-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .ask-text {
+      padding: 20px;
+      color: #333;
+    }
+
+    .qr-code {
+      margin-top: 12px;
+    }
+
+    .contact-information {
+      margin-top: 20px;
+      color: #666;
+      display: flex;
+      align-items: center;
+      column-gap: 24px;
+
+      :global {
+        .clickable-text {
+          font-weight: bold;
+        }
+      }
+
+      .info-middle-text {
+        margin-left: 3px;
+        margin-right: 8px;
+      }
+    }
+  }
+}
+
+.userinfo-panel {
+  margin-right: 30px;
+
+  :global {
+    .ant-popover-inner {
+      padding: 0;
+    }
+  }
+
+  &-content {
+    width: 280px;
+    margin-top: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .userinfo {
+    height: 110px;
+    background-image: url('@llama-fa/constants/assets/images/header_personal_background.webp');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    padding: 16px 20px 12px 20px;
+
+    .id-info {
+      margin-top: 12px;
+
+      .user-id-label {
+        color: #666666;
+        font-size: 12px;
+        margin-right: 4px;
+      }
+
+      :global {
+        .user-id {
+          font-size: 12px;
+          color: #333;
+        }
+      }
+    }
+  }
+}

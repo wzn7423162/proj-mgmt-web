@@ -1,0 +1,49 @@
+.item {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  padding: 8px; // Add some padding for better spacing
+
+  // Default: 4 columns for large screens (>= 1200px)
+  width: 25%;
+
+  .label {
+    color: #595959;
+    margin-right: 4px;
+
+    &::after {
+      content: ':';
+      margin-left: 2px;
+    }
+  }
+
+  .value {
+    color: #262626;
+    font-weight: 400;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+// Medium screens (e.g., tablets, small desktops), 3 columns
+@media (max-width: 1199.98px) {
+  .item {
+    width: 33.3333%;
+  }
+}
+
+// Small screens (e.g., landscape phones), 2 columns
+@media (max-width: 991.98px) {
+  .item {
+    width: 50%;
+  }
+}
+
+// Extra small screens (e.g., portrait phones), 1 column
+@media (max-width: 767.98px) {
+  .item {
+    width: 100%;
+  }
+}

@@ -1,0 +1,150 @@
+.imp-llama-model {
+
+  background-color: var(--form-bg-color, #fff);
+  padding-bottom: 20px;
+  border-radius: 10px;
+
+  .required-star {
+    color: #ff4d4f;
+    margin-left: 4px;
+  }
+
+  .form-container {
+    background: var(--form-bg-color, #fff);
+    padding: 20px;
+    border-radius: 10px;
+    width: 900px;
+  }
+
+  .form-container-right {
+      width: 480px;
+      margin-left: 16px;
+  }
+  .form_btn {
+      width: 330px;
+      height: 45px;
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+      margin: 20px 0;
+
+      &.form_btn_has_right {
+          left: calc(50% - 490px / 2);
+      }
+  }
+
+  .question-icon {
+    margin-left: 4px;
+  }
+
+  .error-tip {
+    font-size: 12px;
+  }
+
+  .checkpoint-section {
+    :global {
+      .ant-form-item {
+        margin-bottom: 0;
+      }
+    }
+
+    :global(.ant-checkbox-wrapper) {
+      margin-bottom: 12px;
+    }
+  }
+
+  .tags-section {
+    :global {
+      .ant-checkbox-group {
+        width: 100%;
+        margin-bottom: 16px;
+      }
+
+      .ant-checkbox-wrapper {
+        margin-right: 16px;
+        margin-bottom: 8px;
+      }
+    }
+
+    .selected-tags {
+      margin-bottom: 12px;
+      min-height: 32px;
+
+      .tag-item {
+        margin-bottom: 8px;
+        padding: 4px 12px;
+        border-radius: 4px;
+      }
+    }
+
+    .custom-tag-input {
+      :global {
+        .ant-input-affix-wrapper {
+          .ant-input-suffix {
+            .add-button {
+              color: #1890ff;
+              cursor: pointer;
+              user-select: none;
+
+              &:hover {
+                color: #40a9ff;
+              }
+
+              &.disabled {
+                color: rgba(0, 0, 0, 0.25);
+                cursor: not-allowed;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  :global {
+    .ant-form-item-label > label {
+      font-weight: 500;
+    }
+
+    .ant-input-number {
+      width: 100%;
+    }
+
+    .ant-pro-form-group-title {
+      margin-bottom: 16px;
+    }
+  }
+}
+.header {
+    // display: flex;
+    // align-items: center;
+    // gap: 12px;
+    padding: 14px 20px 8px 20px;  /* 顶部左侧对齐 */
+  }
+
+  .back {
+    // display: inline-flex;
+    // align-items: center;
+    // gap: 6px;
+    width: 70px;
+    padding: 4px 10px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 6px;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.06);
+    color: inherit;
+    margin-bottom: 5px;
+
+    .back-icon {
+      margin-right: 2px;
+    }
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.12);
+    }
+  }
+
+  .title {
+    margin-left: 4px;  /* 紧随返回按钮 */
+  }
+

@@ -1,0 +1,24 @@
+.select-training-data-item {
+  :global {
+    .ant-form-item-row {
+      flex-direction: row !important;
+      // align-items: center;
+      flex-wrap: nowrap;
+    }
+
+    .ant-form-item-label {
+      padding-bottom: 0 !important;
+      flex: 0 0 auto;
+      margin-top: 4px !important;
+    }
+
+    .ant-form-item-control {
+      flex: 1;
+      overflow: auto;
+    }
+
+    .ant-form-item-label > label::after {
+      visibility: visible !important;
+    }
+  }
+}

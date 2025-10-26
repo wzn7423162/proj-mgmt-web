@@ -1,0 +1,10 @@
+.login-message {
+  display: flex;
+  justify-content: center;
+
+  :global {
+    .ant-message-notice-content {
+      transform: translateY(-100px);
+    }
+  }
+}

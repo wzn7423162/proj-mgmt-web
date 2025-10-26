@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="338px" height="148px" viewBox="0 0 338 148" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>使用秘籍背景</title>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#F5F5F5" stop-opacity="0.75" offset="0%"></stop>
+            <stop stop-color="#F5F5F5" stop-opacity="0.25" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+        <rect id="path-3" x="0" y="0" width="338" height="148" rx="8"></rect>
+        <radialGradient cx="50%" cy="50%" fx="50%" fy="50%" r="50%" id="radialGradient-5">
+            <stop stop-color="#FFFFFF" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0" offset="49.9265177%"></stop>
+            <stop stop-color="#FFFFFF" offset="100%"></stop>
+        </radialGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="98.6325351%" id="linearGradient-6">
+            <stop stop-color="#8C8C8C" stop-opacity="0.1" offset="0%"></stop>
+            <stop stop-color="#8C8C8C" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="页面-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="控制台" transform="translate(-1518, -638)">
+            <g id="编组-9" transform="translate(1518, 132)">
+                <g id="使用秘籍背景" transform="translate(0, 506)">
+                    <rect id="矩形备份-27" stroke="#F5F5F5" fill="url(#linearGradient-1)" x="0.5" y="0.5" width="337" height="147" rx="8"></rect>
+                    <g id="椭圆形">
+                        <mask id="mask-4" fill="white">
+                            <use xlink:href="#path-3"></use>
+                        </mask>
+                        <use id="蒙版" fill="url(#linearGradient-2)" xlink:href="#path-3"></use>
+                        <circle fill="url(#radialGradient-5)" mask="url(#mask-4)" cx="74.5" cy="-5.5" r="105.5"></circle>
+                    </g>
+                    <g id="知识库" transform="translate(258, 79)" fill="url(#linearGradient-6)">
+                        <path d="M1.84874239,1.09587341 L7.5,0.312807247 C12.436067,-0.371158576 17.4628999,0.0698705389 22.2044586,1.60290272 L27.8571429,3.43051837 L27.8571429,3.43051837 L27.8571429,45 L22.2044586,43.1723844 C17.4628999,41.6393522 12.436067,41.1983231 7.5,41.8822889 L2.4369719,42.5838471 C1.26470498,42.7462822 0.182715208,41.9276517 0.0202801136,40.7553848 C0.00677607018,40.6579284 -8.8817842e-16,40.5596576 -8.8817842e-16,40.46127 L0,3.21845044 C0,2.1486303 0.789047077,1.24271003 1.84874239,1.09587341 Z M58.1512576,1.09587341 L52.5,0.312807247 C47.563933,-0.371158576 42.5371001,0.0698705389 37.7955414,1.60290272 L32.1428571,3.43051837 L32.1428571,3.43051837 L32.1428571,45 L37.7955414,43.1723844 C42.5371001,41.6393522 47.563933,41.1983231 52.5,41.8822889 L57.5630281,42.5838471 C58.735295,42.7462822 59.8172848,41.9276517 59.9797199,40.7553848 C59.9932239,40.6579284 60,40.5596576 60,40.46127 L60,3.21845044 C60,2.1486303 59.2109529,1.24271003 58.1512576,1.09587341 Z" id="形状结合"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

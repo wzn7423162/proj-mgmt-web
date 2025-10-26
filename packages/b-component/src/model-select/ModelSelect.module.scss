@@ -1,0 +1,28 @@
+.name {
+  width: 56px;
+  height: 20px;
+  background: linear-gradient(50deg, #FF1C1C 0%, #FF6F42 100%);
+  border-radius: 4px 4px 4px 4px;
+  color: #fff;
+  font-size: 12px;
+  text-align: center;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+
+  .taskName {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .mergedTag {
+    color: #202020;
+    border-radius: 4px;
+  }
+}
+
+

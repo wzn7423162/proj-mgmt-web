@@ -1,0 +1,25 @@
+.info-card-contain {
+	background: rgba(255, 255, 255, 0.6);
+	border: 1px solid #FFFFFF;
+	overflow: hidden;
+}
+
+.both {
+	border-radius: 12px 12px 12px 12px;
+}
+
+.top {
+	border-radius: 0px 0px 12px 12px;
+}
+
+.right {
+	border-radius: 12px 0px 0px 12px;
+}
+
+.bottom {
+	border-radius: 12px 12px 0px 0px;
+}
+
+.left {
+	border-radius: 0px 12px 12px 0px;
+}

@@ -1,0 +1,44 @@
+.content {
+  background: #20252F;
+  padding: 20px;
+  width: 630px;
+  border-radius: 4px;
+  min-height: 200px;
+
+  .title {
+    font-weight: 500;
+    font-size: 16px;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: space-between;
+
+    .clear {
+      font-size: 12px;
+      font-weight: normal;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      color: #95A3AA;
+
+      .active {
+        animation: spin 1s linear ; // 1秒线性无限旋转360度
+      }
+
+      @keyframes spin {
+        from {
+          transform: rotate(0deg);
+        }
+
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    }
+  }
+
+  .body {
+    flex-direction: column;
+    display: flex;
+
+  }
+}

@@ -1,0 +1,1 @@
+export const LOGIN_BG_VIDEO = 'https://s1.llamafactory.online/infer/video/login-bg-20251021.mp4'
