@@ -5,12 +5,15 @@ import './App.scss';
 
 import { RouterProvider } from 'react-router';
 import { WrapperProvider } from '@llama-fa/component/provider';
+import { GlobalProvider } from './context/GlobalContext';
 import { routerHelper } from './routers/hashRoutes';
 
 function App() {
   return (
     <WrapperProvider>
-      <RouterProvider router={routerHelper.router} />
+      <GlobalProvider>
+        <RouterProvider router={routerHelper.router} />
+      </GlobalProvider>
     </WrapperProvider>
   );
 }

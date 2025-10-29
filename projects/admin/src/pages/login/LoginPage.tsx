@@ -3,10 +3,9 @@ import { Form, Input, Button, message } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import { loginAPI } from '@llama-fa/core/api';
 import styles from './LoginPage.module.scss';
-import { AuthUtils } from '@llama-fa/utils';
+import { AuthUtils, reqClient } from '@llama-fa/utils';
 import { routerHelper } from '../../routers/hashRoutes';
 import { ERouteName } from '../../routers/types';
-import { loginByName } from '@/api/request';
 
 export const LoginPage: React.FC = () => {
   const [loading, setLoading] = useState(false);
@@ -14,8 +13,11 @@ export const LoginPage: React.FC = () => {
   const onFinish = async (values: { phone: string; password: string }) => {
     setLoading(true);
     try {
-      // 參照 online：使用賬號（手機號）+ 密碼登錄，服務端返回 token
-      const response = await loginByName({ phone: values.phone, password: values.password });
+      // 使用 reqClient 请求登录接口
+      const response = await reqClient.post<{ token: string; userId: string; username: string }>(
+        '/front/login/loginByPd',
+        { phone: values.phone, password: values.password }
+      );
 
       if (response?.token) {
         // 保存token和用户信息
@@ -38,7 +40,6 @@ export const LoginPage: React.FC = () => {
         <Form
           name="login"
           className={styles.loginForm}
-          initialValues={{ phone: '13800000000', password: 'admin123' }}
           onFinish={onFinish}
         >
           <Form.Item

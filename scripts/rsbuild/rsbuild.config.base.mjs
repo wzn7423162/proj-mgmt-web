@@ -32,6 +32,7 @@ const DOMAIN =
   }[process.env.PLATFORM] || DOMAIN_ONLINE;
 console.log('q=>DOMAIN', process.env.PLATFORM, DOMAIN);
 const getTargetUrl = () => {
+  return `http://localhost:8890`
   switch (process.env.PROXY_ENV) {
     case 'local': {
       const host = process.env.BACKEND_HOST || 'localhost';

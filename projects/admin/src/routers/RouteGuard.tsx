@@ -5,14 +5,23 @@ import {
   SESSION_STORAGE_PERSIST_SEARCH_PARAMS,
   EStoragePersistSearchParamKey,
 } from '@llama-fa/constants';
+import { useGlobalPresenter } from '../context/GlobalContext';
 
 const PERSIST_SEARCH_PARAMS_KEYS = [EStoragePersistSearchParamKey.UTM_SOURCE];
 
 export const RouteGuard: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const navigate = useNavigate();
   const location = useLocation();
+  const getUserInfo = useGlobalPresenter((ctx) => ctx.getUserInfo);
 
   const isLogin = !!AuthUtils.getToken();
+
+  // 初始化用户信息
+  useEffect(() => {
+    if (isLogin) {
+      getUserInfo();
+    }
+  }, [isLogin, getUserInfo]);
 
   useEffect(() => {
     const persitSearchParamsObj = JSON.parse(

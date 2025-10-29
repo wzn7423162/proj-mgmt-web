@@ -35,13 +35,12 @@ export function getReqClientWithPrefix(prefix?: string) {
   reqClient.use({
     request: baseURLBinder,
     // ...(prefix == '' ? { response: authCodeChecker } : {})
-    // response: authCodeChecker,
+    response: authCodeChecker,
   });
 
   reqClient.use({
     request: tokenBinder,
-    // ...(prefix == '' ? { response: responseDataFormat } : {})
-    // response: responseDataFormat,
+    response: responseDataFormat,
   });
   cacheReqClient[prefix] = reqClient;
   return reqClient;

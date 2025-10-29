@@ -3,7 +3,8 @@ import { message } from 'antd';
 
 // 创建axios实例
 const request = axios.create({
-  baseURL: '/front',
+  // 與 rsbuild 開發代理一致，所有請求走 /api 前綴，代理到 8890
+  baseURL: '/api',
   timeout: 30000,
 });
 
@@ -74,6 +75,7 @@ export const del = <T = any>(url: string, config?: AxiosRequestConfig): Promise<
 
 // 參照 online：帳號密碼登錄（服務端返回 { token }）
 export const loginByName = (params: { phone: string; password: string }) => {
-  return post<{ token: string }>('/login/loginByName', params);
+  // 後端實際接口是 /front/login/loginByPd（支持 username 或 phone）
+  return post<{ token: string }>('/front/login/loginByPd', params);
 };
 
