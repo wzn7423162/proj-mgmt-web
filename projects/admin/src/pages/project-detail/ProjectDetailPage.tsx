@@ -3,7 +3,7 @@ import { Button, Modal, Form, Input, DatePicker, Select, Space, message } from '
 import { PlusOutlined, ArrowLeftOutlined } from '@ant-design/icons';
 import { ProTable } from '@ant-design/pro-components';
 import type { ProColumns, ActionType } from '@ant-design/pro-components';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router';
 import dayjs from 'dayjs';
 import { machineAPI } from '@/api';
 import type { Machine } from '@/types';

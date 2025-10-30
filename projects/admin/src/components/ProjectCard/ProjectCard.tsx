@@ -1,16 +1,19 @@
 import React from 'react';
-import { Card, Button, Space, Modal, message } from 'antd';
+import { Button, Space, Modal, message, Typography, Tooltip } from 'antd';
 import {
   EyeOutlined,
   DeleteOutlined,
   ClockCircleOutlined,
   DatabaseOutlined,
 } from '@ant-design/icons';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 import dayjs from 'dayjs';
 import type { Project } from '@/types';
 import { projectAPI } from '@/api';
 import styles from './ProjectCard.module.scss';
+import { routerHelper } from '@/routers/hashRoutes';
+import { ERouteName } from '@/routers/types';
+const { Text } = Typography;
 
 interface ProjectCardProps {
   project: Project;
@@ -18,10 +21,9 @@ interface ProjectCardProps {
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onDelete }) => {
-  const navigate = useNavigate();
 
   const handleView = () => {
-    navigate(`/project-detail/${project.id}`);
+    routerHelper.to(ERouteName.projectDetail, { query: { id: project.id.toString() } });
   };
 
   const handleDelete = () => {
@@ -43,44 +45,48 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onDelete }) =
     });
   };
 
+  const stopPropagation = (e: React.MouseEvent) => e.stopPropagation();
+
   return (
-    <Card
-      className={styles.projectCard}
-      hoverable
-      onClick={handleView}
-    >
-      <div className={styles.cardHeader}>
-        <div className={styles.projectName}>{project.projectName}</div>
-        <Space onClick={(e) => e.stopPropagation()}>
-          <Button
-            type="text"
-            icon={<EyeOutlined />}
-            onClick={handleView}
-          >
-            查看
-          </Button>
-          <Button
-            type="text"
-            danger
-            icon={<DeleteOutlined />}
-            onClick={handleDelete}
-          >
-            删除
-          </Button>
-        </Space>
+    <div className={styles.instanceCard} onClick={handleView}>
+      <div className={styles.header} onClick={stopPropagation}>
+        <div className={styles.titleBlock}>
+          <div className={styles.titleWrapper}>
+            <Text className={styles.title} ellipsis={{ tooltip: project.projectName }}>
+              {project.projectName}
+            </Text>
+          </div>
+        </div>
+        <div className={styles.actions}>
+          <Space>
+            <Tooltip title="查看">
+              <Button type="text" icon={<EyeOutlined />} onClick={handleView} className={styles.actionButton} />
+            </Tooltip>
+            <Tooltip title="删除">
+              <Button type="text" danger icon={<DeleteOutlined />} onClick={handleDelete} className={styles.actionButton} />
+            </Tooltip>
+          </Space>
+        </div>
       </div>
 
-      <div className={styles.cardContent}>
+      <div className={styles.content}>
         <div className={styles.infoItem}>
-          <DatabaseOutlined className={styles.icon} />
+          <DatabaseOutlined className={styles.infoIcon} />
           <span>机台数量：{project.machineCount || 0}</span>
         </div>
         <div className={styles.infoItem}>
-          <ClockCircleOutlined className={styles.icon} />
+          <ClockCircleOutlined className={styles.infoIcon} />
           <span>创建时间：{dayjs(project.createTime).format('YYYY-MM-DD HH:mm:ss')}</span>
         </div>
       </div>
-    </Card>
+
+      <div className={styles.footer} onClick={stopPropagation}>
+        <div />
+        <div className={styles.footerActions}>
+          {/* 预留底部操作区，保持与 InstanceCard 结构一致 */}
+        </div>
+      </div>
+    </div>
   );
 };
 

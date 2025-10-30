@@ -36,7 +36,7 @@ export const protectedRoutes: IRouterItem[] = [
   {
     type: 'item',
     key: ERouteName.projectDetail,
-    path: ERouteName.projectList,
+    path: ERouteName.projectDetail,
     hidden: true,
     label: '项目详情',
     element: (

@@ -6,7 +6,7 @@
 
 .header {
   display: flex;
-  justify-content: space-between;
+  justify-content: end;
   align-items: center;
   margin-bottom: 24px;
 }
@@ -29,8 +29,7 @@
 }
 
 .listContainer {
-  flex: 1;
-  overflow-y: auto;
+  height: calc(100vh - 290px);
   padding-right: 8px;
 
   &::-webkit-scrollbar {
@@ -45,6 +44,15 @@
       background: #bfbfbf;
     }
   }
+}
+
+.infiniteScroll {
+  overflow-x: hidden !important;
+}
+
+.spinContainer {
+  display: flex;
+  justify-content: center;
 }
 
 .loading {

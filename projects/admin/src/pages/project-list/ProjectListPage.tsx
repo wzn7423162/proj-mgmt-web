@@ -1,11 +1,12 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { Button, Input, Empty, Spin, Modal, Form, message, Space } from 'antd';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
+import { Button, Input, Empty, Spin, Modal, Form, message, Space, Row, Col } from 'antd';
 import { PlusOutlined, SearchOutlined, CaretUpOutlined, CaretDownOutlined } from '@ant-design/icons';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { ProjectCard } from '@/components/ProjectCard/ProjectCard';
 import { projectAPI } from '@/api';
 import type { Project } from '@/types';
 import styles from './ProjectListPage.module.scss';
+import { useMediaQuery } from '@llama-fa/utils';
 import { useDebounceFn } from 'ahooks';
 
 export const ProjectListPage: React.FC = () => {
@@ -21,6 +22,11 @@ export const ProjectListPage: React.FC = () => {
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc' | undefined>(undefined);
 
   const pageSize = 10;
+  const listContainerRef = useRef<HTMLDivElement>(null);
+  const [containerHeight, setContainerHeight] = useState(600);
+
+  const screenSize = useMediaQuery();
+  const colSpan = 24 / screenSize;
 
   const fetchProjects = useCallback(async (pageNum: number, search: string, isInitial = false) => {
     setLoading(true);
@@ -34,9 +40,13 @@ export const ProjectListPage: React.FC = () => {
       } as any);
 
       if (response.list) {
-        setProjects((prev) => (isInitial ? response.list : [...prev, ...response.list]));
-        setTotal(response.total);
-        setHasMore(((isInitial ? 0 : projects.length) + response.list.length) < response.total);
+        setProjects((prev) => {
+          const next = isInitial ? response.list : [...prev, ...response.list];
+          const totalCount = response.total ?? next.length;
+          setTotal(totalCount);
+          setHasMore(next.length < totalCount);
+          return next;
+        });
       }
     } catch (error) {
       console.error('获取项目列表失败:', error);
@@ -47,6 +57,12 @@ export const ProjectListPage: React.FC = () => {
 
   useEffect(() => {
     fetchProjects(1, '', true);
+  }, []);
+
+  useEffect(() => {
+    if (listContainerRef.current) {
+      setContainerHeight(listContainerRef.current.clientHeight);
+    }
   }, []);
 
   const handleSearch = (value: string) => {
@@ -107,12 +123,7 @@ export const ProjectListPage: React.FC = () => {
   const handleCreateProject = async () => {
     try {
       const values = await form.validateFields();
-      const userId = localStorage.getItem('userId');
-
-      await projectAPI.create({
-        projectName: values.projectName,
-        userId: Number(userId),
-      });
+      await projectAPI.create({ projectName: values.projectName });
 
       message.success('创建成功');
       setCreateModalVisible(false);
@@ -141,7 +152,7 @@ export const ProjectListPage: React.FC = () => {
   return (
     <div className={styles.projectListPage}>
       <div className={styles.header}>
-        <div className={styles.title}>项目列表</div>
+        {/* <div className={styles.title}>项目列表</div> */}
         <div className={styles.actions}>
           <Space size="large">
             <span
@@ -181,7 +192,7 @@ export const ProjectListPage: React.FC = () => {
         <span>共 {total} 个项目</span>
       </div>
 
-      <div className={styles.listContainer} id="scrollableDiv">
+      <div className={styles.listContainer} ref={listContainerRef}>
         {loading && projects.length === 0 ? (
           <div className={styles.loading}>
             <Spin size="large" />
@@ -203,15 +214,16 @@ export const ProjectListPage: React.FC = () => {
                 <div className={styles.endMessage}>没有更多项目了</div>
               )
             }
-            scrollableTarget="scrollableDiv"
+            height={containerHeight}
+            className={styles.infiniteScroll}
           >
-            {projects.map((project) => (
-              <ProjectCard
-                key={project.id}
-                project={project}
-                onDelete={handleDeleteSuccess}
-              />
-            ))}
+            <Row gutter={[24, 24]}>
+              {projects.map((project) => (
+                <Col span={colSpan} key={project.id}>
+                  <ProjectCard project={project} onDelete={handleDeleteSuccess} />
+                </Col>
+              ))}
+            </Row>
           </InfiniteScroll>
         )}
       </div>

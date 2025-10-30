@@ -1,46 +1,98 @@
-.projectCard {
-  margin-bottom: 16px;
-  cursor: pointer;
+.instanceCard {
+  border: 1px solid #e8e8e8;
+  border-radius: 8px;
+  padding: 16px;
+  background: #fff url('~@llama-fa/constants/assets/images/task/card_background.png') no-repeat;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  position: relative;
   transition: all 0.3s;
+  cursor: pointer;
 
   &:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
 }
 
-.cardHeader {
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 16px;
+  cursor: auto;
 }
 
-.projectName {
-  font-size: 16px;
-  font-weight: 600;
-  color: #333;
+.titleBlock {
+  display: flex;
+  flex-direction: column;
   flex: 1;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  min-width: 0;
 }
 
-.cardContent {
-  .infoItem {
-    display: flex;
-    align-items: center;
-    margin-bottom: 8px;
-    color: #666;
-    font-size: 14px;
+.titleWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
 
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
+.title {
+  font-weight: 500;
+  font-size: 16px;
+  margin-right: 8px;
+  flex-shrink: 1;
+  min-width: 0;
+}
 
-  .icon {
+.actions {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  padding-top: 3px;
+}
+
+.content {
+  margin: 16px 0;
+  flex-grow: 1;
+}
+
+.infoItem {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  color: #8c8c8c;
+
+  .infoIcon {
     margin-right: 8px;
-    color: #1890ff;
   }
 }
 
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+  margin-top: auto;
+}
+
+.footerActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.actionButton {
+  min-width: 20px;
+  border-radius: 2px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  line-height: 22px;
+  justify-content: center;
+  box-shadow: none;
+  vertical-align: middle;
+}
