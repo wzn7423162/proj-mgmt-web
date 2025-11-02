@@ -3,15 +3,19 @@ import { Button, Modal, Form, Input, DatePicker, Select, Space, message } from '
 import { PlusOutlined, ArrowLeftOutlined } from '@ant-design/icons';
 import { ProTable } from '@ant-design/pro-components';
 import type { ProColumns, ActionType } from '@ant-design/pro-components';
-import { useNavigate, useParams } from 'react-router';
+import { useNavigate, useLocation } from 'react-router';
 import dayjs from 'dayjs';
 import { machineAPI } from '@/api';
 import type { Machine } from '@/types';
 import styles from './ProjectDetailPage.module.scss';
+import { routerHelper } from '@/routers/hashRoutes';
+import { ERouteName } from '@/routers/types';
 
 export const ProjectDetailPage: React.FC = () => {
-  const { id } = useParams<{ id: string }>();
-  const projectId = Number(id);
+  const { search } = useLocation();
+  const searchParams = new URLSearchParams(search);
+  // 重要：项目ID可能超出 JS 安全整数范围，禁止 Number() 转换，保持字符串透传
+  const projectId = searchParams.get('id'); // string | null
   const navigate = useNavigate();
   const actionRef = useRef<ActionType>();
   const [form] = Form.useForm();
@@ -42,7 +46,14 @@ export const ProjectDetailPage: React.FC = () => {
       dataIndex: 'importTime',
       key: 'importTime',
       width: 200,
-      valueType: 'dateTime',
+      valueType: 'dateTimeRange',
+      // 搜索使用时间区间；表格中仍按单个时间点展示
+      search: {
+        transform: (value: [dayjs.Dayjs, dayjs.Dayjs]) => ({
+          startDate: value?.[0]?.format('YYYY-MM-DD HH:mm:ss'),
+          endDate: value?.[1]?.format('YYYY-MM-DD HH:mm:ss'),
+        }),
+      },
       render: (_, record) => {
         return record.importTime
           ? dayjs(record.importTime).format('YYYY-MM-DD HH:mm:ss')
@@ -121,16 +132,10 @@ export const ProjectDetailPage: React.FC = () => {
     try {
       const values = await form.validateFields();
 
+      // 后端已支持以逗号分隔的批量添加，且自动填充默认值
       await machineAPI.create({
         machineName: values.machineName,
-        projectId,
-        importTime: values.importTime
-          ? values.importTime.format('YYYY-MM-DD HH:mm:ss')
-          : undefined,
-        onlineTime: values.onlineTime
-          ? values.onlineTime.format('YYYY-MM-DD HH:mm:ss')
-          : undefined,
-        onlineVerified: values.onlineVerified || 0,
+        projectId: projectId as any,
       });
 
       message.success('创建成功');
@@ -178,27 +183,33 @@ export const ProjectDetailPage: React.FC = () => {
 
   return (
     <div className={styles.projectDetailPage}>
-      <div className={styles.header}>
+      {/* <div className={styles.header}>
         <Button
+          type='text'
           icon={<ArrowLeftOutlined />}
-          onClick={() => navigate('/project-list')}
+          onClick={() => routerHelper.to(ERouteName.projectList)}
           style={{ marginRight: 16 }}
         >
           返回
         </Button>
-        <div className={styles.title}>机台管理</div>
-      </div>
+      </div> */}
 
       <ProTable<Machine>
         columns={columns}
         actionRef={actionRef}
         request={async (params) => {
           try {
+            if (!projectId) {
+              return { data: [], success: true, total: 0 };
+            }
             const response = await machineAPI.getList({
               pageNum: params.current || 1,
               pageSize: params.pageSize || 10,
-              projectId,
+              // 作为字符串传递，后端可解析为 Long，避免精度丢失
+              projectId: projectId as any,
               machineName: params.machineName,
+              startDate: params.startDate,
+              endDate: params.endDate,
             });
 
             return {
@@ -253,22 +264,7 @@ export const ProjectDetailPage: React.FC = () => {
             name="machineName"
             rules={[{ required: true, message: '请输入机台名称' }]}
           >
-            <Input placeholder="请输入机台名称" />
-          </Form.Item>
-
-          <Form.Item label="导入时间" name="importTime">
-            <DatePicker showTime style={{ width: '100%' }} />
-          </Form.Item>
-
-          <Form.Item label="上线时间" name="onlineTime">
-            <DatePicker showTime style={{ width: '100%' }} />
-          </Form.Item>
-
-          <Form.Item label="上线验证" name="onlineVerified">
-            <Select placeholder="请选择">
-              <Select.Option value={0}>未验证</Select.Option>
-              <Select.Option value={1}>已验证</Select.Option>
-            </Select>
+            <Input placeholder="请输入机台名称，支持用逗号分隔多个，如：机台A,机台B" />
           </Form.Item>
         </Form>
       </Modal>

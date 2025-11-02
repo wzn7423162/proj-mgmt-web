@@ -75,8 +75,12 @@ const afterLogout = () => {
         sessionStorage.getItem(SESSION_STORAGE_PERSIST_SEARCH_PARAMS) || '{}'
       );
 
-      // 修复：去掉多余的空格，正确拼接查询参数
-      location.href = parseUrlByQueryParam('/login', presistSearchParams);
+      // 根据路由模式选择跳转目标：Hash 路由使用 /#/login，避免跳到后端 404
+      const isHashMode = !!location.hash;
+      const base = isHashMode ? '/#' : '';
+      const target = parseUrlByQueryParam(`${base}/login`, presistSearchParams);
+      // 使用 replace 避免保留错误页历史记录
+      location.replace(target);
     }
   } catch (error: any) {
     console.error(error);

@@ -25,7 +25,8 @@ export const machineAPI = {
   },
 
   delete: (id: number) => {
-    return reqClient.delete('/front/machine/delete', { params: { id } });
+    // 注意：delete 第二个参数是 body，params 需要放到第三个参数 options
+    return reqClient.delete('/front/machine/delete', undefined, { params: { id } });
   },
 };
 

@@ -24,7 +24,8 @@ export const projectAPI = {
   },
 
   delete: (id: number) => {
-    return reqClient.delete('/front/project/delete', { params: { id } });
+    // 注意：delete 第二个参数是 body，params 需要放到第三个参数 options
+    return reqClient.delete('/front/project/delete', undefined, { params: { id } });
   },
 };
 
