@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Form, Input, Button, message } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
-import { loginAPI } from '@llama-fa/core/api';
 import styles from './LoginPage.module.scss';
 import { AuthUtils, reqClient } from '@llama-fa/utils';
 import { routerHelper } from '../../routers/hashRoutes';

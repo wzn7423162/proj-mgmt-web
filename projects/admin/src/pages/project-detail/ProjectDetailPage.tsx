@@ -25,14 +25,6 @@ export const ProjectDetailPage: React.FC = () => {
   const [editModalVisible, setEditModalVisible] = useState(false);
   const [currentRecord, setCurrentRecord] = useState<Machine | null>(null);
 
-  // 定时自动刷新表格（參照 online 的輪詢思路）
-  useEffect(() => {
-    const timer = setInterval(() => {
-      actionRef.current?.reload?.();
-    }, 5000);
-    return () => clearInterval(timer);
-  }, []);
-
   const columns: ProColumns<Machine>[] = [
     {
       title: '机台名',
